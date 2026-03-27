@@ -19,7 +19,10 @@ except ImportError:
 MESH_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "static", "meshes")
 
 
-def ensure_mesh_dir():
+def ensure_mesh_dir() -> None:
+    """
+    Ensure the mesh directory exists.
+    """
     os.makedirs(MESH_DIR, exist_ok=True)
 
 

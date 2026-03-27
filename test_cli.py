@@ -1,6 +1,7 @@
 import argparse
 import requests
 import sys
+import json
 
 API_URL = "http://localhost:8000/command"
 
@@ -19,7 +20,6 @@ def main():
         
         if response.status_code == 200:
             print("Response JSON:")
-            import json
             print(json.dumps(response.json(), indent=2))
         else:
             print("Error Response:")

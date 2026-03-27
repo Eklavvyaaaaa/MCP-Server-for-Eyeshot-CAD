@@ -2,7 +2,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .routes import router
 
-app = FastAPI(title="MCP CAD Server", description="LLM-driven 3D Geometry Manipulation", version="1.0.0")
+app = FastAPI(
+    title="MCP CAD Server",
+    description="LLM-driven 3D Geometry Manipulation",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url=None
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -15,5 +21,5 @@ app.add_middleware(
 app.include_router(router)
 
 @app.get("/")
-def root():
+def read_root():
     return {"message": "MCP CAD Server is running. Send POST requests to /command."}
